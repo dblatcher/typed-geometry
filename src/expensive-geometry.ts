@@ -1,6 +1,5 @@
-import { XY, Circle, getDistance } from "./geometry"
-
-
+import { getDistance } from "./geometry"
+import { XY, Circle } from "./types-and-constants"
 
 export function doesLineSegmentCrossCircleEdge(path: [XY, XY], circle: Circle): boolean {
 

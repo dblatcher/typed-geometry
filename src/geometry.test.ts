@@ -1,4 +1,5 @@
-import { doRectsIntersect, getHeading, isPointInsideRect, Rect } from "./geometry";
+import { doRectsIntersect, getHeading, isPointInsideRect, } from "./geometry";
+import { Rect } from "./types-and-constants";
 
 describe('isPointInsideRect', () => {
 
