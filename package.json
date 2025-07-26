@@ -1,0 +1,49 @@
+{
+  "name": "typed geometry",
+  "version": "0.1.0",
+  "description": "TypeScript library providing types and functions for geometric calculations",
+  "private": false,
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "scripts": {
+    "build": "tsc --build",
+    "build-esm": "tsc --build ./tsconfig.esm.json",
+    "format": "prettier --write \"src/**/*.(js|ts)\"",
+    "lint": "eslint src --ext .js,.ts",
+    "lint:fix": "eslint src --fix --ext .js,.ts",
+    "test": "jest --config jest.config.js",
+    "prepare": "npm run build",
+    "prepublishOnly": "npm test && npm run lint",
+    "preversion": "npm run lint",
+    "version": "npm run format && git add -A src",
+    "postversion": "git push && git push --tags"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dblatcher/typed-geometry.git"
+  },
+  "keywords": [
+    "typescript",
+    "geometry"
+  ],
+  "author": "DBlatcher",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/dblatcher/typed-geometry/issues"
+  },
+  "homepage": "https://github.com/dblatcher/typed-geometry#readme",
+  "devDependencies": {
+    "@types/jest": "29.4.0",
+    "@typescript-eslint/eslint-plugin": "5.54.0",
+    "@typescript-eslint/parser": "5.52.0",
+    "eslint": "8.35.0",
+    "eslint-plugin-jest": "27.2.1",
+    "jest": "29.4.3",
+    "prettier": "2.8.4",
+    "ts-jest": "29.0.5",
+    "typescript": "4.9.5"
+  },
+  "files": [
+    "lib/**/*"
+  ]
+}

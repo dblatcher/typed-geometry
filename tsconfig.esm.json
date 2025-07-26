@@ -1,0 +1,13 @@
+{
+	"extends": "./tsconfig.json",
+	"compilerOptions": {
+		"module": "esnext",
+		"target": "es6",
+		"declaration": true,
+		"rootDir": "./src",
+		"outDir": "dist/esm",
+		"declarationDir": "dist/declaration",
+		"incremental": false
+	},
+	"include": ["src/**/*"],
+}
