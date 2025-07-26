@@ -71,6 +71,9 @@ const oneHorizontallyContainsTheOther = (r1: Rect, r2: Rect): boolean => {
     return (r1.right <= r2.right && r1.left >= r2.left) || (r2.right <= r1.right && r2.left >= r1.left)
 }
 
+/**
+ * Checks for intersection between Rects
+ */
 export const doRectsIntersect = (r1: Rect, r2: Rect): boolean => {
     return isPointInsideRect({ x: r1.left, y: r1.top }, r2) ||
         isPointInsideRect({ x: r1.left, y: r1.bottom }, r2) ||
