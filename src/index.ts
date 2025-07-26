@@ -1,1 +1,2 @@
-export const testFunction = (name: string) => `hello ${name}` 
+export * from './geometry'
+export * from './expensive-geometry'

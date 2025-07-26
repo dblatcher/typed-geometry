@@ -2,7 +2,7 @@
 
 ## Installation
 
-`npm i @dblatcher/sprite-canvas`
+TBC - not on npm yet
 
 ## License
 
