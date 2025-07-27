@@ -77,7 +77,9 @@ export const doRectsIntersect = (r1: Rect, r2: Rect): boolean => {
         isPointInsideRect({ x: r2.left, y: r2.bottom }, r1) ||
         isPointInsideRect({ x: r2.right, y: r2.top }, r1) ||
         isPointInsideRect({ x: r2.right, y: r2.bottom }, r1) ||
-        (oneHorizontallyContainsTheOther(r1, r2) && oneVerticalyContainsTheOther(r1, r2))
+        (oneHorizontallyContainsTheOther(r1, r2) && oneVerticalyContainsTheOther(r1, r2)) ||
+        (oneHorizontallyContainsTheOther(r1, r2) && ((r1.top >= r2.top && r1.top <= r2.bottom) || (r2.top >= r1.top && r2.top <= r1.bottom))) ||
+        (oneVerticalyContainsTheOther(r1, r2) && ((r1.left >= r2.left && r1.left <= r2.right) || (r2.left >= r1.left && r2.left <= r1.right)))
 }
 
 export const doCircleIntersect = (c1: Circle, c2: Circle): boolean => {
