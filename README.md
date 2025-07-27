@@ -2,7 +2,7 @@
 
 ## Installation
 
-TBC - not on npm yet
+`npm i typed-geometry`
 
 ## License
 

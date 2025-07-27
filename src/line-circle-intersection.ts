@@ -1,22 +1,18 @@
 import { getDistance } from "./geometry"
 import { XY, Circle } from "./types-and-constants"
 
-export function doesLineSegmentCrossCircleEdge(path: [XY, XY], circle: Circle): boolean {
-
-    const point0IsInside = isPointInsideCircle(circle, path[0])
-    const point1IsInside = isPointInsideCircle(circle, path[1])
-
-    if (point0IsInside && point1IsInside) { return false }
-    if (point1IsInside != point0IsInside) { return true }
-
-    return isPointInsideCircle(circle, closestPointOnLineSegment(...path, circle))
-
-}
-
 function isPointInsideCircle(circle: Circle, point: XY) {
     return getDistance(circle, point) <= circle.r
 }
 
+function _vectorToSegment2D(t: number, P: XY, A: XY, B: XY) {
+    return {
+        x: (1 - t) * A.x + t * B.x - P.x,
+        y: (1 - t) * A.y + t * B.y - P.y,
+    } as XY
+}
+
+function _sqDiag2D(P: XY) { return P.x ** 2 + P.y ** 2 }
 
 function closestPointOnLineSegment(segmentPoint1: XY, segmentPoint2: XY, p0: XY) {
     const v: XY = { x: segmentPoint2.x - segmentPoint1.x, y: segmentPoint2.y - segmentPoint1.y }
@@ -30,11 +26,11 @@ function closestPointOnLineSegment(segmentPoint1: XY, segmentPoint2: XY, p0: XY)
     return g0 <= g1 ? segmentPoint1 : segmentPoint2
 }
 
-function _vectorToSegment2D(t: number, P: XY, A: XY, B: XY) {
-    return {
-        x: (1 - t) * A.x + t * B.x - P.x,
-        y: (1 - t) * A.y + t * B.y - P.y,
-    } as XY
-}
+export function doesLineSegmentCrossCircleEdge(path: [XY, XY], circle: Circle): boolean {
+    const point0IsInside = isPointInsideCircle(circle, path[0])
+    const point1IsInside = isPointInsideCircle(circle, path[1])
+    if (point0IsInside && point1IsInside) { return false }
+    if (point1IsInside != point0IsInside) { return true }
 
-function _sqDiag2D(P: XY) { return P.x ** 2 + P.y ** 2 }
+    return isPointInsideCircle(circle, closestPointOnLineSegment(...path, circle))
+}
