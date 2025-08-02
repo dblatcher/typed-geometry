@@ -26,8 +26,7 @@ function orientation(p: XY, q: XY, r: XY): Orientation {
 }
 
 export const isPointOnLineSegment = (point: XY, segment: LineSegment) =>
-    orientation(point, ...segment) === Orientation.Colinear ? onSegment(point, ...segment) : false
-
+    orientation(point, ...segment) === Orientation.Colinear ? onSegment(segment[0], point, segment[1]) : false
 
 
 /**
@@ -67,7 +66,6 @@ function doLineSegmentsIntersect(segment1: [XY, XY], segment2: [XY, XY]): boolea
 
 
 /**
- * PROBLEM - seems to fail when squares are at a 45 degree orientation...?
  * @param point 
  * @param polygon 
  * @returns if the XY is inside the polygon
