@@ -1,6 +1,6 @@
 {
   "name": "typed-geometry",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "TypeScript library providing types and functions for geometric calculations",
   "private": false,
   "main": "lib/index.js",
