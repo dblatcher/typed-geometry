@@ -26,6 +26,7 @@ describe('isPointInsidePolygon', () => {
     expect(isPointInsidePolygon({ x: 5, y: 31 }, diamond)).toBe(false);
     expect(isPointInsidePolygon({ x: 0, y: 10 }, diamond)).toBe(false);
     expect(isPointInsidePolygon({ x: 12, y: 10 }, diamond)).toBe(false);
+    expect(isPointInsidePolygon({ x: -10, y: 15 }, diamond)).toBe(false);
   });
 
   it('works with points adjacent to a vertex', () => {

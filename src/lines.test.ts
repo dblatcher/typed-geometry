@@ -1,4 +1,4 @@
-import { isPointOnLineSegment } from './polygons';
+import { isPointOnLineSegment } from './lines';
 
 describe('isPointOnLineSegment', () => {
   it('works with verticals', () => {
